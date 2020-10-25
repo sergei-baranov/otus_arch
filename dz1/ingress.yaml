@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: otus-arch-dz1-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: "arch.homework"
+    http:
+      paths:
+        - path: /otusapp/sergei_baranov($|/)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: otus-arch-dz1-service
+              port:
+                number: 9000

@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  otus_arch:
+    environment:
+     - PHP_CLI_SERVER_WORKERS=8
+    build: ./
+    container_name: otus_arch_dz1
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+    working_dir: /app
+#   entrypoint: "php -S 0.0.0.0:8000 /app/router.php"
+    ports:
+      - "127.0.0.1:8000:8000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1024k"
+        max-file: "2"
