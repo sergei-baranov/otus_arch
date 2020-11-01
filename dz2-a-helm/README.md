@@ -82,3 +82,9 @@
     NAME    NAMESPACE       REVISION        UPDATED STATUS  CHART   APP VERSION
 
 ничего не осталось
+
+По сути для запуска приложения достаточно
+
+    .../dz2-a-helm$ helm install sergei-baranov-dz2 ./dz2-chart
+    $ wget -qO- http://arch.homework/otusapp/sergei_baranov/health
+    {"status": "OK"}
